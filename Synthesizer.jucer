@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="SUbANj" name="Synthesizer" projectType="audioplug" version="1.0.0"
+              bundleIdentifier="com.yourcompany.Synthesizer" includeBinaryInAppConfig="1"
+              buildVST="1" buildVST3="1" buildAU="0" buildRTAS="0" buildAAX="0"
+              pluginName="Synthesizer" pluginDesc="Synthesizer" pluginManufacturer="Jordan Harris"
+              pluginManufacturerCode="JTHA" pluginCode="Snth" pluginChannelConfigs="{1, 1}, {2, 2}"
+              pluginIsSynth="0" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
+              pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="1"
+              pluginAUExportPrefix="SynthesizerAU" pluginRTASCategory="" aaxIdentifier="com.yourcompany.Synthesizer"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.1"
+              companyName="Jordan Harris">
+  <MAINGROUP id="DpS0kp" name="Synthesizer">
+    <GROUP id="{6722A643-1715-40D7-8A0C-2F9203E98BF9}" name="Source">
+      <GROUP id="{8DA62C24-9C8E-D884-1C4D-EB330C4B6282}" name="Custom">
+        <GROUP id="{B632109A-CAC2-EFC2-B493-AE1701C8B2F7}" name="Utilities">
+          <FILE id="vxXe4I" name="DspUtilities.h" compile="0" resource="0" file="Source/Custom/Utilities/DspUtilities.h"/>
+        </GROUP>
+        <FILE id="jSudxc" name="TransDirectFormIIFilter.cpp" compile="1" resource="0"
+              file="Source/Custom/TransDirectFormIIFilter.cpp"/>
+        <FILE id="obiGXN" name="TransDirectFormIIFilter.h" compile="0" resource="0"
+              file="Source/Custom/TransDirectFormIIFilter.h"/>
+        <FILE id="hWxzoH" name="FloatParameter.cpp" compile="1" resource="0"
+              file="Source/Custom/FloatParameter.cpp"/>
+        <FILE id="wTr3b2" name="FloatParameter.h" compile="0" resource="0"
+              file="Source/Custom/FloatParameter.h"/>
+        <FILE id="O043hI" name="Synth.cpp" compile="1" resource="0" file="Source/Custom/Synth.cpp"/>
+        <FILE id="K7iur0" name="Synth.h" compile="0" resource="0" file="Source/Custom/Synth.h"/>
+      </GROUP>
+      <FILE id="LJOHr0" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="QIC8ZN" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="dnaZfr" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="T8AF3Z" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2013 targetFolder="Builds/VisualStudio2013" vstFolder="C:\Programming\VST3_SDK"
+            vst3Folder="C:\Programming\VST3_SDK">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Synthesizer"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="Synthesizer"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../../../../Programming/CPPLibraries/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2013>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_utils" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+</JUCERPROJECT>
