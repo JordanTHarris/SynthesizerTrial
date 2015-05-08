@@ -11,13 +11,15 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+//==============================================================================
+
 // Default parameter values
 const float defaultOutputGain = 1.0f;
 const float defaultSemitones = 0.0f;
 const float defaultCents = 0.0f;
-const float defaultType = bq_type_lowpass;
+const float defaultFilterType = bq_type_lowpass;
 const float defaultCutoff = 20.0f;
-const float defaultResonance = 0.7f;
+const float defaultResonance = 0.5f;
 const float defaultPeakGain = 0.0f;
 
 //==============================================================================
@@ -27,13 +29,13 @@ SynthesizerAudioProcessor::SynthesizerAudioProcessor()
 	addParameter(outputGain = new FloatParameter{ defaultOutputGain, "Output Gain" });
 	addParameter(semitones = new FloatParameter{ defaultSemitones, "Semitones" });
 	addParameter(cents = new FloatParameter{ defaultCents, "Cents" });
-	addParameter(filterType = new FloatParameter{ defaultType, "Filter Type" });
-	addParameter(cutoff = new FloatParameter{ defaultCutoff, "Cutoff" });
-	addParameter(resonance = new FloatParameter{ defaultResonance, "Resonance" });
-	addParameter(peakGaindB = new FloatParameter{ defaultPeakGain, "Peak Gain" });
+	addParameter(filterType = new FilterTypeParam{ directFormFilter, defaultFilterType, "Filter Type" });
+	addParameter(cutoff = new CutoffFreqParam{ directFormFilter, defaultCutoff, "Cutoff Frequency" });
+	addParameter(resonance = new ResonanceParam{ directFormFilter, defaultResonance, "Resonance" });
+	addParameter(peakGaindB = new PeakGainParam{ directFormFilter, defaultPeakGain, "Peak Gain" });
 	
 	lastUIWidth = 400;
-	lastUIHeight = 200;
+	lastUIHeight = 300;
 
 	lastPosInfo.resetToDefault();
 
@@ -132,10 +134,10 @@ void SynthesizerAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
 		float* channelData = buffer.getWritePointer (channel);
 
 		for (int i = 0; i < numSamples; ++i) {
-			const float in = channelData[i];
+			const float input = channelData[i];
 
 			// Process the audio buffer through the TransDirectFormIIFilter
-			channelData[i] = directFormFilter.processChannel(in, channel);
+			channelData[i] = directFormFilter.processChannel(input, channel);
 
 			// Apply the gain to the audio buffer by simply multiplying it
 			channelData[i] *= outputGain->getValue();

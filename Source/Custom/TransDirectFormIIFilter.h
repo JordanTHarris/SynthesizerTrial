@@ -39,7 +39,7 @@ public:
 
 	// Initialize the filter with specific (static) parameters. Useful for
 	// using as a static filter; not modulating parameters.
-	TransDirectFormIIFilter(int type, double Fc, double res, double peakGaindB);
+	TransDirectFormIIFilter(int type, double cutoff, double res, double peakGaindB);
 
 	~TransDirectFormIIFilter();
 
@@ -60,7 +60,7 @@ public:
 	void setResonance(double resonance);
 
 	// Used for changing the filter's cutoff parameter (Hz)
-	void setFc(double Fc);
+	void setCutoff(double cutoff);
 
 	/**
 	*	Used for changing the peak gain (dB) of some filter types:
@@ -71,22 +71,13 @@ public:
 	void setPeakGain(double peakGaindB);
 
 	// Statically set the filters parameters.
-	void setFilter(int type, double Fc, double res, double peakGaindB);
+	void setFilter(int type, double cutoff, double res, double peakGaindB);
 
-	/**
-	*	Performs the actual processing for one sample of data, on one channel.
-	*	If 2 channels are needed (stereo), use the appropriate process function
-	*	for the given channel (left & right)
+	/**	
+	*	Performs the actual processing for one sample of data, on 2 channels.
+	*	If 2 channels are needed (stereo), use channel index (channelIdx) to 
+	*	specify which channel is being processed (i.e. 0 for left, 1 for right).
 	*/
-	float processLeft(float in);
-
-	/**
-	*	Performs the actual processing for one sample of data, on one channel.
-	*	If 2 channels are needed (stereo), use the appropriate process function
-	*	for the given channel (left & right)
-	*/
-	float processRight(float in);
-
 	float processChannel(float in, int channelIndex);
 
 	// Set the sample rate used by the host. Needs to be used to accurately
@@ -100,21 +91,16 @@ protected:
 
 	int type;							// filters type (LP, HP, BP, etc.)
 	double a0, a1, a2, b1, b2;			// coefficients
-	double Fc, Q, peakGain;				// parameters
-	double z1_A[2], z2_A[2];			// arrays of states (z¯¹) for stereo processing
+	double cutoff, Q, peakGain;				// parameters
+	double z1_A[2], z2_A[2];			// arrays of states (z^-1) for stereo processing
 	double sampleRate;
 };
 
-/**	
-*	Performs the actual processing for one sample of data, on 2 channels.
-*	If 2 channels are needed (stereo), use channel index (channelIdx) to 
-*	specify which channel is being processed (i.e. 0 for left, 1 for right).
-*/
-inline float TransDirectFormIIFilter::processChannel(float in, int channelIdx)
+inline float TransDirectFormIIFilter::processChannel(float input, int channelIdx)
 {
-	double out = in * a0 + z1_A[channelIdx];
-	z1_A[channelIdx] = (in * a1) + z2_A[channelIdx] - (b1 * out);
-	z2_A[channelIdx] = (in * a2) - (b2 * out);
+	double out = input * a0 + z1_A[channelIdx];
+	z1_A[channelIdx] = (input * a1) + z2_A[channelIdx] - (b1 * out);
+	z2_A[channelIdx] = (input * a2) - (b2 * out);
 	return out;
 }
 

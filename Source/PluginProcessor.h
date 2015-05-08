@@ -12,9 +12,14 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Custom\FloatParameter.h"
 #include "Custom\Synth.h"
 #include "Custom\TransDirectFormIIFilter.h"
+// Parameter classes
+#include "Custom\Parameters\FloatParameter.h"
+#include "Custom\Parameters\FilterTypeParam.h"
+#include "Custom\Parameters\CutoffFreqParam.h"
+#include "Custom\Parameters\ResonanceParam.h"
+#include "Custom\Parameters\PeakGainParam.h"
 
 //==============================================================================
 /**
@@ -82,6 +87,23 @@ public:
 	AudioProcessorParameter* cutoff;		// Filter's cutoff in pitch (MIDI)
 	AudioProcessorParameter* resonance;		// Filter's resonance (0-1)
 	AudioProcessorParameter* peakGaindB;	// Filter's peak gain (for Peak, HS, LS)
+
+
+
+	//==============================================================================
+
+	enum Parameters
+	{
+		kOutputGain = 0,
+		kSemitones,
+		kCents,
+		kFilterType,
+		kCutoff,
+		kResonance,
+		kpeakGaindB
+	};
+
+	//==============================================================================
 
 private:
 	//==============================================================================

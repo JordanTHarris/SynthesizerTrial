@@ -14,7 +14,7 @@
 #ifndef FLOATPARAMETER_H_INCLUDED
 #define FLOATPARAMETER_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "../../JuceLibraryCode/JuceHeader.h"
 
 //==============================================================================
 class FloatParameter : public AudioProcessorParameter {
@@ -30,6 +30,7 @@ public:
 private:
 	float defaultValue, value;
 	String name;
+	int index;			// index to check which parameter is used.
 };
 
 //==============================================================================

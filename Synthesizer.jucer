@@ -13,6 +13,19 @@
   <MAINGROUP id="DpS0kp" name="Synthesizer">
     <GROUP id="{6722A643-1715-40D7-8A0C-2F9203E98BF9}" name="Source">
       <GROUP id="{8DA62C24-9C8E-D884-1C4D-EB330C4B6282}" name="Custom">
+        <GROUP id="{E221743D-5D04-06FD-F62C-54D92B393C20}" name="Parameters">
+          <FILE id="ZptXt0" name="FilterTypeParam.h" compile="0" resource="0"
+                file="Source/Custom/Parameters/FilterTypeParam.h"/>
+          <FILE id="ZVqV0A" name="PeakGainParam.h" compile="0" resource="0" file="Source/Custom/Parameters/PeakGainParam.h"/>
+          <FILE id="RPW9jC" name="ResonanceParam.h" compile="0" resource="0"
+                file="Source/Custom/Parameters/ResonanceParam.h"/>
+          <FILE id="BICY4c" name="CutoffFreqParam.h" compile="0" resource="0"
+                file="Source/Custom/Parameters/CutoffFreqParam.h"/>
+          <FILE id="MbpZBI" name="FloatParameter.cpp" compile="1" resource="0"
+                file="Source/Custom/Parameters/FloatParameter.cpp"/>
+          <FILE id="bUS9ob" name="FloatParameter.h" compile="0" resource="0"
+                file="Source/Custom/Parameters/FloatParameter.h"/>
+        </GROUP>
         <GROUP id="{B632109A-CAC2-EFC2-B493-AE1701C8B2F7}" name="Utilities">
           <FILE id="vxXe4I" name="DspUtilities.h" compile="0" resource="0" file="Source/Custom/Utilities/DspUtilities.h"/>
         </GROUP>
@@ -20,10 +33,6 @@
               file="Source/Custom/TransDirectFormIIFilter.cpp"/>
         <FILE id="obiGXN" name="TransDirectFormIIFilter.h" compile="0" resource="0"
               file="Source/Custom/TransDirectFormIIFilter.h"/>
-        <FILE id="hWxzoH" name="FloatParameter.cpp" compile="1" resource="0"
-              file="Source/Custom/FloatParameter.cpp"/>
-        <FILE id="wTr3b2" name="FloatParameter.h" compile="0" resource="0"
-              file="Source/Custom/FloatParameter.h"/>
         <FILE id="O043hI" name="Synth.cpp" compile="1" resource="0" file="Source/Custom/Synth.cpp"/>
         <FILE id="K7iur0" name="Synth.h" compile="0" resource="0" file="Source/Custom/Synth.h"/>
       </GROUP>
@@ -31,9 +40,9 @@
             file="Source/PluginProcessor.cpp"/>
       <FILE id="QIC8ZN" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="dnaZfr" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="Qw4leF" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="T8AF3Z" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="O2EEQh" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>

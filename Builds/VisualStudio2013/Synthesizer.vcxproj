@@ -137,8 +137,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Custom\Parameters\FloatParameter.cpp"/>
     <ClCompile Include="..\..\Source\Custom\TransDirectFormIIFilter.cpp"/>
-    <ClCompile Include="..\..\Source\Custom\FloatParameter.cpp"/>
     <ClCompile Include="..\..\Source\Custom\Synth.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
@@ -1227,9 +1227,13 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Custom\Parameters\FilterTypeParam.h"/>
+    <ClInclude Include="..\..\Source\Custom\Parameters\PeakGainParam.h"/>
+    <ClInclude Include="..\..\Source\Custom\Parameters\ResonanceParam.h"/>
+    <ClInclude Include="..\..\Source\Custom\Parameters\CutoffFreqParam.h"/>
+    <ClInclude Include="..\..\Source\Custom\Parameters\FloatParameter.h"/>
     <ClInclude Include="..\..\Source\Custom\Utilities\DspUtilities.h"/>
     <ClInclude Include="..\..\Source\Custom\TransDirectFormIIFilter.h"/>
-    <ClInclude Include="..\..\Source\Custom\FloatParameter.h"/>
     <ClInclude Include="..\..\Source\Custom\Synth.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
