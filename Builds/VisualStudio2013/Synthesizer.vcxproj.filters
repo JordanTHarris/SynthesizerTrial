@@ -11,6 +11,9 @@
     <Filter Include="Synthesizer\Source\Custom">
       <UniqueIdentifier>{C56BD253-ACF7-6E79-CF28-4AEA2931FC88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Synthesizer\Source\Custom\Oscillators">
+      <UniqueIdentifier>{2EB11571-3650-1249-5506-E5A6082307EA}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Synthesizer\Source\Custom\Parameters">
       <UniqueIdentifier>{88E1EB9A-8B82-B6D8-2AA9-6B75C6B34BB4}</UniqueIdentifier>
     </Filter>
@@ -304,13 +307,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Custom\Oscillators\SawWave.cpp">
+      <Filter>Synthesizer\Source\Custom\Oscillators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Custom\Oscillators\SineWave.cpp">
+      <Filter>Synthesizer\Source\Custom\Oscillators</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Custom\Parameters\FloatParameter.cpp">
       <Filter>Synthesizer\Source\Custom\Parameters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Custom\TransDirectFormIIFilter.cpp">
-      <Filter>Synthesizer\Source\Custom</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Custom\Synth.cpp">
       <Filter>Synthesizer\Source\Custom</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
@@ -1518,6 +1524,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Custom\Oscillators\SawWave.h">
+      <Filter>Synthesizer\Source\Custom\Oscillators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Custom\Oscillators\SineWave.h">
+      <Filter>Synthesizer\Source\Custom\Oscillators</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Custom\Parameters\FilterTypeParam.h">
       <Filter>Synthesizer\Source\Custom\Parameters</Filter>
     </ClInclude>
@@ -1537,9 +1549,6 @@
       <Filter>Synthesizer\Source\Custom\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Custom\TransDirectFormIIFilter.h">
-      <Filter>Synthesizer\Source\Custom</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Custom\Synth.h">
       <Filter>Synthesizer\Source\Custom</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">

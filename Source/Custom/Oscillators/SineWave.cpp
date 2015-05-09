@@ -8,10 +8,10 @@
   ==============================================================================
 */
 
-#include "Synth.h"
+#include "SineWave.h"
 
 SineWaveVoice::SineWaveVoice()
-	: angleDelta{ 0.0 }, 
+	: normalizedFreq{ 0.0 }, 
 	  tailOff{0.0}
 {
 }
@@ -31,7 +31,7 @@ void SineWaveVoice::startNote(int midiNoteNumber, float velocity, SynthesiserSou
 	double cyclesPerSecond = MidiMessage::getMidiNoteInHertz(midiNoteNumber);
 	double cyclesPerSamples = cyclesPerSecond / getSampleRate();
 
-	angleDelta = cyclesPerSamples * 2.0 * double_Pi;
+	normalizedFreq = cyclesPerSamples * 2.0 * double_Pi;
 }
 
 void SineWaveVoice::stopNote(float velocity, bool allowTailOff)
@@ -48,7 +48,7 @@ void SineWaveVoice::stopNote(float velocity, bool allowTailOff)
 	else {
 		// we're being told to stop playing immediately, so reset everything...
 		clearCurrentNote();
-		angleDelta = 0.0;
+		normalizedFreq = 0.0;
 	}
 }
 
@@ -64,7 +64,7 @@ void SineWaveVoice::controllerMoved(int controllerNumber, int newValue)
 
 void SineWaveVoice::renderNextBlock(AudioSampleBuffer& outputBuffer, int startSample, int numSamples)
 {
-	if (angleDelta != 0.0) {
+	if (normalizedFreq != 0.0) {
 		if (tailOff > 0) {
 			while (--numSamples >= 0) {
 				const float currentSample = (float)(sin(currentAngle) * level * tailOff);
@@ -72,7 +72,7 @@ void SineWaveVoice::renderNextBlock(AudioSampleBuffer& outputBuffer, int startSa
 				for (int i = outputBuffer.getNumChannels(); --i >= 0;)
 					outputBuffer.addSample(i, startSample, currentSample);
 
-				currentAngle += angleDelta;
+				currentAngle += normalizedFreq;
 				++startSample;
 
 				tailOff *= 0.99;
@@ -80,7 +80,7 @@ void SineWaveVoice::renderNextBlock(AudioSampleBuffer& outputBuffer, int startSa
 				if (tailOff <= 0.005) {
 					clearCurrentNote();
 
-					angleDelta = 0.0;
+					normalizedFreq = 0.0;
 					break;
 				}
 			}
@@ -92,7 +92,7 @@ void SineWaveVoice::renderNextBlock(AudioSampleBuffer& outputBuffer, int startSa
 				for (int i = outputBuffer.getNumChannels(); --i >= 0;)
 					outputBuffer.addSample(i, startSample, currentSample);
 
-				currentAngle += angleDelta;
+				currentAngle += normalizedFreq;
 				++startSample;
 			}
 		}

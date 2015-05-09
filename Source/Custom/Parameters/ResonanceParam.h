@@ -16,6 +16,7 @@
 #include "../TransDirectFormIIFilter.h"
 
 //==============================================================================
+
 class ResonanceParam : public FloatParameter {
 public:
 	ResonanceParam(TransDirectFormIIFilter& filter,

@@ -137,9 +137,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Custom\Oscillators\SawWave.cpp"/>
+    <ClCompile Include="..\..\Source\Custom\Oscillators\SineWave.cpp"/>
     <ClCompile Include="..\..\Source\Custom\Parameters\FloatParameter.cpp"/>
     <ClCompile Include="..\..\Source\Custom\TransDirectFormIIFilter.cpp"/>
-    <ClCompile Include="..\..\Source\Custom\Synth.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -1227,6 +1228,8 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Custom\Oscillators\SawWave.h"/>
+    <ClInclude Include="..\..\Source\Custom\Oscillators\SineWave.h"/>
     <ClInclude Include="..\..\Source\Custom\Parameters\FilterTypeParam.h"/>
     <ClInclude Include="..\..\Source\Custom\Parameters\PeakGainParam.h"/>
     <ClInclude Include="..\..\Source\Custom\Parameters\ResonanceParam.h"/>
@@ -1234,7 +1237,6 @@
     <ClInclude Include="..\..\Source\Custom\Parameters\FloatParameter.h"/>
     <ClInclude Include="..\..\Source\Custom\Utilities\DspUtilities.h"/>
     <ClInclude Include="..\..\Source\Custom\TransDirectFormIIFilter.h"/>
-    <ClInclude Include="..\..\Source\Custom\Synth.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

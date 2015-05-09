@@ -16,6 +16,7 @@
 #include "../TransDirectFormIIFilter.h"
 
 //==============================================================================
+
 class FilterTypeParam : public FloatParameter {
 public:
 	FilterTypeParam(TransDirectFormIIFilter& filter,

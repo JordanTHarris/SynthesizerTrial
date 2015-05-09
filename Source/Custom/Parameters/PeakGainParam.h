@@ -16,6 +16,7 @@
 #include "../TransDirectFormIIFilter.h"
 
 //==============================================================================
+
 class PeakGainParam : public FloatParameter {
 public:
 	PeakGainParam(TransDirectFormIIFilter& filter,

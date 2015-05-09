@@ -12,9 +12,11 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Custom\Synth.h"
+#include "Custom\Oscillators\SineWave.h"
+#include "Custom\Oscillators\SawWave.h"
 #include "Custom\TransDirectFormIIFilter.h"
-// Parameter classes
+
+// Parameter class files:
 #include "Custom\Parameters\FloatParameter.h"
 #include "Custom\Parameters\FilterTypeParam.h"
 #include "Custom\Parameters\CutoffFreqParam.h"

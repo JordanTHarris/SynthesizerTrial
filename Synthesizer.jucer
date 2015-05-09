@@ -13,6 +13,12 @@
   <MAINGROUP id="DpS0kp" name="Synthesizer">
     <GROUP id="{6722A643-1715-40D7-8A0C-2F9203E98BF9}" name="Source">
       <GROUP id="{8DA62C24-9C8E-D884-1C4D-EB330C4B6282}" name="Custom">
+        <GROUP id="{5B4FC693-1044-36A4-D708-4DCED565D0DF}" name="Oscillators">
+          <FILE id="eGpSA6" name="SawWave.cpp" compile="1" resource="0" file="Source/Custom/Oscillators/SawWave.cpp"/>
+          <FILE id="f6ybJD" name="SawWave.h" compile="0" resource="0" file="Source/Custom/Oscillators/SawWave.h"/>
+          <FILE id="QSvJ4j" name="SineWave.h" compile="0" resource="0" file="Source/Custom/Oscillators/SineWave.h"/>
+          <FILE id="mL4PGl" name="SineWave.cpp" compile="1" resource="0" file="Source/Custom/Oscillators/SineWave.cpp"/>
+        </GROUP>
         <GROUP id="{E221743D-5D04-06FD-F62C-54D92B393C20}" name="Parameters">
           <FILE id="ZptXt0" name="FilterTypeParam.h" compile="0" resource="0"
                 file="Source/Custom/Parameters/FilterTypeParam.h"/>
@@ -33,8 +39,6 @@
               file="Source/Custom/TransDirectFormIIFilter.cpp"/>
         <FILE id="obiGXN" name="TransDirectFormIIFilter.h" compile="0" resource="0"
               file="Source/Custom/TransDirectFormIIFilter.h"/>
-        <FILE id="O043hI" name="Synth.cpp" compile="1" resource="0" file="Source/Custom/Synth.cpp"/>
-        <FILE id="K7iur0" name="Synth.h" compile="0" resource="0" file="Source/Custom/Synth.h"/>
       </GROUP>
       <FILE id="LJOHr0" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>

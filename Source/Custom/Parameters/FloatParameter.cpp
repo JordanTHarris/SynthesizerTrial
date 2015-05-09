@@ -14,6 +14,7 @@
 #include "FloatParameter.h"
 
 //==============================================================================
+
 FloatParameter::FloatParameter(float defaultParameterValue, const String& paramName)
 	: defaultValue{ defaultParameterValue },
 	  value{ defaultParameterValue },
@@ -51,3 +52,5 @@ float FloatParameter::getValueForText(const String& text) const
 {
 	return text.getFloatValue();
 }
+
+//==============================================================================

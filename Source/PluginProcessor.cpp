@@ -40,10 +40,14 @@ SynthesizerAudioProcessor::SynthesizerAudioProcessor()
 	lastPosInfo.resetToDefault();
 
 	// Initialize the synth:
-	for (int i = 4; --i >= 0;)
-		synth.addVoice(new SineWaveVoice{});	// These voices will play the SineWaveSound
+	for (int i = 4; --i >= 0;) {
+		//synth.addVoice(new SineWaveVoice{});	// These voices will play the SineWaveSound
+		synth.addVoice(new SawWaveVoice{});
+	}
 
-	synth.addSound(new SineWaveSound{});
+	//synth.addSound(new SineWaveSound{});
+	synth.addSound(new SawWaveSound{});
+
 }
 
 SynthesizerAudioProcessor::~SynthesizerAudioProcessor()

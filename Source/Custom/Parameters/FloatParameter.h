@@ -17,6 +17,7 @@
 #include "../../JuceLibraryCode/JuceHeader.h"
 
 //==============================================================================
+
 class FloatParameter : public AudioProcessorParameter {
 public:
 	FloatParameter(float defaultParameterValue, const String& paramName);

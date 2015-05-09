@@ -15,8 +15,8 @@
 #include "FloatParameter.h"
 #include "../TransDirectFormIIFilter.h"
 
-
 //==============================================================================
+
 class CutoffFreqParam : public FloatParameter {
 public:
 	CutoffFreqParam(TransDirectFormIIFilter& filter, 

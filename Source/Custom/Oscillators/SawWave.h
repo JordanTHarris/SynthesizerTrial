@@ -1,42 +1,51 @@
 /*
   ==============================================================================
 
-	Synth.h
-	Created: 2 May 2015 3:48:07am
+	SawWave.h
+	Created: 8 May 2015 3:33:03pm
 	Author:  Jordan
 
   ==============================================================================
 */
 
-#ifndef SYNTH_H_INCLUDED
-#define SYNTH_H_INCLUDED
+#ifndef SAWWAVE_H_INCLUDED
+#define SAWWAVE_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "../../JuceLibraryCode/JuceHeader.h"
 
 //==============================================================================
 
-class SineWaveSound : public SynthesiserSound {
+class SawWaveSound : public SynthesiserSound {
 public:
-	SineWaveSound() {}
+	SawWaveSound() {}
 
 	bool appliesToNote(int midiNoteNumber) override { return true; }
 	bool appliesToChannel(int midiChannel) override { return true; }
 };
 
-class SineWaveVoice : public SynthesiserVoice {
+class SawWaveVoice : public SynthesiserVoice {
 public:
-	SineWaveVoice();
+	SawWaveVoice();
 	bool canPlaySound(SynthesiserSound* sound) override;
 	void startNote(int midiNoteNumber, float velocity, SynthesiserSound* sound,
-				   int currentPitchWheelPosition) override;
+		int currentPitchWheelPosition) override;
 	void stopNote(float velocity, bool allowTailOff) override;
 	void pitchWheelMoved(int newValue) override;
 	void controllerMoved(int controllerNumber, int newValue) override;
 	void renderNextBlock(AudioSampleBuffer& outputBuffer, int startSample, int numSamples);
 
 private:
-	double currentAngle, angleDelta, level, tailOff;
+	double frequency;
+	double phaseShift;
+	double level;
+	double tailOff;
+	double currentPhase;
+	double normalizedFreq;	// Normalized Fundamental Frequency
+	double wrapValue;		// Number the accumulator will wrap around (N)
+							// N = 0.5 (Ramp)
+							// N = Pi (Sine)
+
 };
 
 //==============================================================================
-#endif  // SYNTH_H_INCLUDED
+#endif  // SAWWAVE_H_INCLUDED
